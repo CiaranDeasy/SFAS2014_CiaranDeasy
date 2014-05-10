@@ -1,0 +1,64 @@
+#!/usr/bin/env mkb
+
+options
+{
+    module_path="./modules"
+}
+
+subprojects
+{
+    iw2d
+    iw2dscenegraph
+    iw2dscenegraphcore
+    SoundEngine
+}
+
+files
+{
+    [source]
+    (source)
+    audio.cpp
+    input.cpp
+    main.cpp
+    resources.cpp
+    scene.cpp
+
+    audio.h
+    input.h
+    resources.h
+    scene.h
+
+	GameSceneManager.cpp
+	TitleScene.cpp
+	GameScene.cpp
+	ResultsScene.cpp
+    PauseScene.cpp
+    BoardScene.cpp
+    TutorialScene.cpp
+	GridItem.cpp
+    Grid.cpp
+    TargetNumberGenerator.cpp
+    GameData.cpp
+
+	GameSceneManager.h
+	TitleScene.h
+	GameScene.h
+	ResultsScene.h
+    PauseScene.h
+    BoardScene.h
+    TutorialScene.h
+	GridItem.h
+    Grid.h
+    TargetNumberGenerator.h
+    GameData.h
+}
+
+assets
+{
+    (data)
+    audio
+    textures
+
+    (data-ram/data-gles1, data)
+    .
+}
