@@ -29,6 +29,10 @@ Grid::~Grid()
     // Delete all the GridItems.
     for( int i = 0; i < ( m_GridWidth * m_GridHeight ); i++ )
     {
+        // Remove sprites from the GameScene, because the GridItem destructor 
+        // will clean them up.
+        m_Scene.RemoveChild(m_pGrid[i]->GetSprite());
+        m_Scene.RemoveChild(m_pGrid[i]->GetLabel());
         delete m_pGrid[i];
     }
     // Not responsible for deleting the TargetNumberGenerator.

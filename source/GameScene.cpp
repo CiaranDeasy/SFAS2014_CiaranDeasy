@@ -35,15 +35,7 @@ GameScene::GameScene( GameSceneManager& sceneManager ) :
 GameScene::~GameScene()
 {
     delete m_pGrid;
-    delete m_pScoreText;
-    delete m_pTimeText;
-    delete m_pCurrentNumberText;
-    delete m_pFirstTargetNumberText;
-    delete m_pSecondTargetNumberText;
-    delete m_pThirdTargetNumberText;
     delete m_pTNG;
-    delete m_pPauseSprite;
-    delete m_pSuperModeSprite;
 }
 
 void GameScene::Init()
@@ -125,6 +117,7 @@ void GameScene::Init()
 	m_pSuperModeSprite->m_ScaleY = 0.4f;
 	m_pSuperModeSprite->m_AnchorX = 0.0;
 	m_pSuperModeSprite->m_AnchorY = 0.0;
+    AddChild( m_pSuperModeSprite );
 
 	// Create the target number texts
 	m_pFirstTargetNumberText = new CLabel();
@@ -252,7 +245,7 @@ void GameScene::Update(float deltaTime, float alphaMul)
             {
                 if( m_SuperModeRemaining == 0 )
                 {
-                    AddChild( m_pSuperModeSprite );
+                    m_pSuperModeSprite->m_IsVisible = true;
                 }
                 scoreMultiplier *= sSuperModeMultiplier;
                 timeMultiplier *= 1.5f;
@@ -265,7 +258,7 @@ void GameScene::Update(float deltaTime, float alphaMul)
                 m_SuperModeRemaining--;
                 if( m_SuperModeRemaining == 0 )
                 {
-                    RemoveChild( m_pSuperModeSprite );
+                    m_pSuperModeSprite->m_IsVisible = false;
                 }
             }
             m_Score += sBaseScore * scoreMultiplier;

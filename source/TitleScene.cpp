@@ -24,15 +24,7 @@ TitleScene::TitleScene( GameSceneManager& sceneManager )
 
 TitleScene::~TitleScene()
 {
-	delete m_pBackground;
-    delete m_pStartSprite;
-    delete m_pStartText;
-    delete m_pTutorialSprite;
-    delete m_pTutorialText;
-    delete m_pBoardSprite;
-    delete m_pBoardText;
-    delete m_pWipeSprite;
-    delete m_pWipeText;
+    // Children are deleted by parent destructor (CNode)
 }
 
 void TitleScene::Init()

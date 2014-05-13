@@ -24,12 +24,6 @@ TutorialScene::TutorialScene( GameSceneManager& sceneManager )
 
 TutorialScene::~TutorialScene()
 {
-    for( unsigned int i = 0; i < keNumberOfPages; i++ )
-    {
-        delete m_pPages;
-    }
-    delete m_pButtonSprite;
-    delete m_pButtonLabel;
 }
 
 void TutorialScene::Init()

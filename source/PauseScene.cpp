@@ -24,8 +24,6 @@ PauseScene::PauseScene( GameSceneManager& sceneManager )
 
 PauseScene::~PauseScene()
 {
-    delete m_pResumeSprite;
-    delete m_pResumeText;
 }
 
 void PauseScene::Init()

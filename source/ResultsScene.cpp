@@ -24,8 +24,6 @@ ResultsScene::ResultsScene( GameSceneManager& sceneManager )
 
 ResultsScene::~ResultsScene()
 {
-    delete m_GameOver;
-    delete m_TapContinue;
 }
 
 void ResultsScene::Init()

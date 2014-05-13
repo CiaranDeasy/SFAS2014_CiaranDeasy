@@ -26,11 +26,6 @@ BoardScene::BoardScene( GameSceneManager& sceneManager )
 
 BoardScene::~BoardScene()
 {
-    delete m_pTitle;
-    for( unsigned int i = 0; i < 10; i++ )
-    {
-        delete m_pScoreValues[i];
-    }
 }
 
 void BoardScene::Init()
