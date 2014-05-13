@@ -47,9 +47,19 @@ int main()
     // Create scene manager
     SFAS2014::GameSceneManager * pSceneManager = new SFAS2014::GameSceneManager();
 
+    // Initialise the time
+    uint64 currentTime = 0;
+    uint64 lastTime = s3eTimerGetMs();
+    float deltaTime = 0;
+
     // Loop forever, until the user or the OS performs some action to quit the app
     while (!s3eDeviceCheckQuitRequest())
     {
+        // Compute the change in time.
+        currentTime = s3eTimerGetMs();
+        deltaTime = ((float)(currentTime - lastTime))/1000.f;
+        lastTime = currentTime;
+
         // Update input system
         g_pInput->Update();
 
@@ -57,7 +67,7 @@ int main()
         g_pAudio->Update();
 
         // Update scene manager
-        pSceneManager->Update(FRAME_TIME);
+        pSceneManager->Update(deltaTime);
 
         // Clear the drawing surface
         Iw2DSurfaceClear(0xffff0000);
