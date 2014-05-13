@@ -50,7 +50,6 @@ protected:
 	CIw2DImage*		ResultsBackground;
     CIw2DImage*     TutorialPages[6];
     CIw2DFont*      Font;
-    AudioSound*     TilesCleared;
 
 public:
     CIw2DImage*     getCircle()					{ return Circle; }
@@ -64,7 +63,6 @@ public:
     CIw2DImage*     getResultsBackground()		{ return ResultsBackground; }
     CIw2DImage*     getTutorialPage( int i )    { return TutorialPages[i]; }
 	CIw2DFont*		getFont()					{ return Font; }
-    AudioSound*     getTilesCleared()           { return TilesCleared; }
 
 public:
     Resources();

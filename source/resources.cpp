@@ -40,7 +40,8 @@ Resources::Resources()
     Font = Iw2DCreateFont("fonts/arial8.gxfont");
 
     // Load sound effects
-    TilesCleared = g_pAudio->PreloadSound("audio/gem_destroyed.wav");
+    // Don't store them here, they are managed internally by the Audio object.
+    g_pAudio->PreloadSound("audio/gem_destroyed.wav");
 }
 
 Resources::~Resources()
@@ -60,7 +61,6 @@ Resources::~Resources()
     }
 
 	delete Font;
-    delete TilesCleared;
 }
 
 // Global resources

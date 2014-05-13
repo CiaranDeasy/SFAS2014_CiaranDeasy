@@ -271,7 +271,7 @@ void GameScene::Update(float deltaTime, float alphaMul)
             m_Score += sBaseScore * scoreMultiplier;
             m_pGrid->ClearHighlightedItems();
             // Play a sound effect.
-            g_pResources->getTilesCleared()->m_SoundSpec->Play();
+            g_pAudio->PlaySound("audio/gem_destroyed.wav");
 
             m_Time += sBaseTime * timeMultiplier;
             m_pTNG->ConsumeTargetAndGridItems();
