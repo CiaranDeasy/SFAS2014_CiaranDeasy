@@ -36,6 +36,7 @@ GameScene::~GameScene()
 {
     delete m_pGrid;
     delete m_pTNG;
+    delete[] GridItem::Values;
 }
 
 void GameScene::Init()

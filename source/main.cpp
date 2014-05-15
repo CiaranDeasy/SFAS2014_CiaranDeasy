@@ -87,6 +87,7 @@ int main()
     delete g_pAudio;
     delete g_pInput;
     delete g_pResources;
+    delete g_pGameData;
     delete pSceneManager;
     Iw2DTerminate();
 

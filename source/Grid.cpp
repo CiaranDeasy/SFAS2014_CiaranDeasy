@@ -35,6 +35,7 @@ Grid::~Grid()
         m_Scene.RemoveChild(m_pGrid[i]->GetLabel());
         delete m_pGrid[i];
     }
+    delete[] m_pGrid;
     // Not responsible for deleting the TargetNumberGenerator.
 }
 

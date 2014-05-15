@@ -43,10 +43,12 @@ void TutorialScene::Init()
 	    m_pPages[i]->m_H = m_pPages[i]->GetImage()->GetHeight();
 	    m_pPages[i]->m_AnchorX = 0.0f;
 	    m_pPages[i]->m_AnchorY = 0.0f;
+        m_pPages[i]->m_IsVisible = false;
+        AddChild(m_pPages[i]);
     }
 
     m_ActivePage = kePage0;
-    AddChild(m_pPages[kePage0]);
+    m_pPages[kePage0]->m_IsVisible = true;
 
     // Create Button
     m_pButtonSprite = new CSprite();
@@ -107,13 +109,13 @@ void TutorialScene::Render()
 void TutorialScene::GoToPage( Page page )
 {
     // Change the display.
-    RemoveChild( m_pPages[m_ActivePage] );
-    AddChild( m_pPages[page] );
+    m_pPages[m_ActivePage]->m_IsVisible = false;
+    m_pPages[page]->m_IsVisible = true;
     // Re-add the button to show it on top.
-    RemoveChild( m_pButtonSprite );
-    AddChild( m_pButtonSprite );
-    RemoveChild( m_pButtonLabel );
-    AddChild( m_pButtonLabel );
+    //RemoveChild( m_pButtonSprite );
+    //AddChild( m_pButtonSprite );
+    //RemoveChild( m_pButtonLabel );
+    //AddChild( m_pButtonLabel );
 
     // Position the button.
     switch( page )
