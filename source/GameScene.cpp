@@ -118,6 +118,7 @@ void GameScene::Init()
 	m_pSuperModeSprite->m_ScaleY = 0.4f;
 	m_pSuperModeSprite->m_AnchorX = 0.0;
 	m_pSuperModeSprite->m_AnchorY = 0.0;
+    m_pSuperModeSprite->m_IsVisible = false;
     AddChild( m_pSuperModeSprite );
 
 	// Create the target number texts
