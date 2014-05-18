@@ -53,6 +53,15 @@ public:
      */
 	void    SwitchTo(GameSceneManager::State state);
 
+    /**
+     * @fn    void GameSceneManager::SwitchToResultsState( unsigned int score );
+     *
+     * @brief Switches to the Results Scene
+     *
+     * @param score  The player's final score.
+     */
+	void    SwitchToResultsState( unsigned int score );
+
 private: 
 	
 	Scene * m_pScenes[keNumberOfStates];

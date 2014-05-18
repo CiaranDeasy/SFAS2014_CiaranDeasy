@@ -72,3 +72,11 @@ void GameSceneManager::SwitchTo(GameSceneManager::State state)
     g_pInput->Reset();
 }
 
+void GameSceneManager::SwitchToResultsState( unsigned int score )
+{
+    dynamic_cast<ResultsScene *>(m_pScenes[keResultsState])->SetScore( score );
+	SceneManager::SwitchTo( m_pScenes[keResultsState] );
+    g_pInput->Reset();
+}
+
+

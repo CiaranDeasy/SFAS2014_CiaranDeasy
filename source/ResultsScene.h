@@ -52,6 +52,13 @@ public:
      */
     void Render();
 
+    /**
+     * @fn    void ResultsScene::SetScore( unsigned int score );
+     *
+     * @brief Sets the score to be displayed.
+     */
+    void SetScore( unsigned int score );
+
 private: 
 
     // Reference to the parent scene manager, for switching scenes.
@@ -60,6 +67,10 @@ private:
 	CSprite* m_Background;
     CLabel* m_GameOver;
     CLabel* m_TapContinue;
+
+    // The last score achieved.
+    unsigned int m_Score;
+    const char* m_NameEntered;
 };
 }
 

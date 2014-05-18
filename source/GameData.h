@@ -28,13 +28,15 @@ public:
     ~GameData();
 
     unsigned int GetScore( unsigned int index );
+    const char* const GetName( unsigned int index ) const;
 
-    void AddScore( unsigned int score );
+    void AddScore( unsigned int score, const char* name );
 
 private: 
     
     int m_Version;
     unsigned int m_ScoreValues[10];
+    char m_ScoreNames[160];
 };
 }
 

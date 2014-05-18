@@ -57,6 +57,7 @@ private:
 
     CLabel* m_pTitle;
     CLabel* m_pScoreValues[10];
+    CLabel* m_pScoreNames[10];
 
 };
 }

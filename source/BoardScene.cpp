@@ -56,6 +56,16 @@ void BoardScene::Init()
     	m_pScoreValues[i]->m_AnchorY = 0.5;
 	    m_pScoreValues[i]->m_Color = CColor(255,255,255,255);
 	    AddChild(m_pScoreValues[i]);
+
+        m_pScoreNames[i] = new CLabel();
+	    m_pScoreNames[i]->m_X = (float)IwGxGetScreenWidth() * 0.05f;
+	    m_pScoreNames[i]->m_Y = (float)IwGxGetScreenHeight() * (0.15f + 0.06f * i);
+	    m_pScoreNames[i]->SetFont(g_pResources->getFont());
+	    m_pScoreNames[i]->SetText("Bar");
+	    m_pScoreNames[i]->m_AnchorX = 0.5;
+    	m_pScoreNames[i]->m_AnchorY = 0.5;
+	    m_pScoreNames[i]->m_Color = CColor(255,255,255,255);
+	    AddChild(m_pScoreNames[i]);
     }
 }
 
@@ -76,6 +86,8 @@ void BoardScene::Update(float deltaTime, float alphaMul)
 	    m_pScoreValues[i]->SetText(scoreBuffer);
         // Add a few extra pixels to the width, because the function underestimates.
         m_pScoreValues[i]->m_W = (float)Iw2DGetStringWidth(scoreBuffer) + 5;
+
+        m_pScoreNames[i]->SetText( std::string( g_pGameData->GetName(i) ) );
     }
 
     if( g_pInput->m_Pressed )

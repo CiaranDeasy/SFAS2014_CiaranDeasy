@@ -197,9 +197,7 @@ void GameScene::Update(float deltaTime, float alphaMul)
 	if( m_Time <= 0.0f )
 	{
         Audio::StopMusic();
-        g_pGameData->AddScore( m_Score );
-        GameData::SaveGameData(g_pGameData);
-        m_SceneManager.SwitchTo( GameSceneManager::keResultsState );
+        m_SceneManager.SwitchToResultsState( m_Score );
         return;
 	}
 	else
