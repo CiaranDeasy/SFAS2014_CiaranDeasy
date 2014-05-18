@@ -37,6 +37,9 @@ private:
     int m_Version;
     unsigned int m_ScoreValues[10];
     char m_ScoreNames[160];
+
+    // Sets the name at the given index of the scoreboard.
+    void SetName( unsigned int index, const char* newName );
 };
 }
 

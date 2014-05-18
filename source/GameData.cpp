@@ -66,26 +66,34 @@ void GameData::SaveGameData( GameData* data )
 
 void GameData::AddScore( unsigned int score, const char* name )
 {
-    int scoreIndex = -1;
     for( unsigned int i = 0; i < 10; i++ )
     {
         if( score > m_ScoreValues[i] )
         {
+            // Move lower scores down.
             for( unsigned int j = 9; j > i; j-- )
             {
                 m_ScoreValues[j] = m_ScoreValues[j-1];
+                SetName( j, &m_ScoreNames[(j-1)*16] );
             }
+            // Insert the new score.
             m_ScoreValues[i] = score;
-            scoreIndex = i;
-            break;
+            SetName( i, name );
+            return;
         }
     }
-    for( unsigned int i = 0; i < 16; i++ )
+}
+
+void GameData::SetName( unsigned int index, const char* newName )
+{
+    for( unsigned int i = 0; i < 15; i++ )
     {
-        m_ScoreNames[scoreIndex + i] = name[i];
-        if( '\0' == name[i] )
+        m_ScoreNames[index*16 + i] = newName[i];
+        if( '\0' == newName[i] )
         {
-            break;
+            return;
         }
     }
+    // End with null-termination.
+    m_ScoreNames[index*16 + 15] = '\0';
 }
