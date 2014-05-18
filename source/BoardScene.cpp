@@ -48,22 +48,22 @@ void BoardScene::Init()
     for( unsigned int i = 0; i < 10; i++ )
     {
 	    m_pScoreValues[i] = new CLabel();
-	    m_pScoreValues[i]->m_X = (float)IwGxGetScreenWidth() * 0.5f;
+	    m_pScoreValues[i]->m_X = (float)IwGxGetScreenWidth() * 0.85f;
 	    m_pScoreValues[i]->m_Y = (float)IwGxGetScreenHeight() * (0.15f + 0.06f * i);
 	    m_pScoreValues[i]->SetFont(g_pResources->getFont());
 	    m_pScoreValues[i]->SetText("Bar");
-	    m_pScoreValues[i]->m_AnchorX = 0.5;
-    	m_pScoreValues[i]->m_AnchorY = 0.5;
+	    m_pScoreValues[i]->m_AnchorX = 1.0;
+    	m_pScoreValues[i]->m_AnchorY = 0.0;
 	    m_pScoreValues[i]->m_Color = CColor(255,255,255,255);
 	    AddChild(m_pScoreValues[i]);
 
         m_pScoreNames[i] = new CLabel();
-	    m_pScoreNames[i]->m_X = (float)IwGxGetScreenWidth() * 0.05f;
+	    m_pScoreNames[i]->m_X = (float)IwGxGetScreenWidth() * 0.15f;
 	    m_pScoreNames[i]->m_Y = (float)IwGxGetScreenHeight() * (0.15f + 0.06f * i);
 	    m_pScoreNames[i]->SetFont(g_pResources->getFont());
 	    m_pScoreNames[i]->SetText("Bar");
-	    m_pScoreNames[i]->m_AnchorX = 0.5;
-    	m_pScoreNames[i]->m_AnchorY = 0.5;
+	    m_pScoreNames[i]->m_AnchorX = 0.0;
+    	m_pScoreNames[i]->m_AnchorY = 0.0;
 	    m_pScoreNames[i]->m_Color = CColor(255,255,255,255);
 	    AddChild(m_pScoreNames[i]);
     }
@@ -79,7 +79,7 @@ void BoardScene::Update(float deltaTime, float alphaMul)
 
 	Scene::Update(deltaTime, alphaMul);
     
-	char scoreBuffer[9];
+	char scoreBuffer[18];
     for( unsigned int i = 0; i < 10; i++ )
     {
 	    sprintf(scoreBuffer, "%d", g_pGameData->GetScore(i) );
@@ -88,6 +88,8 @@ void BoardScene::Update(float deltaTime, float alphaMul)
         m_pScoreValues[i]->m_W = (float)Iw2DGetStringWidth(scoreBuffer) + 5;
 
         m_pScoreNames[i]->SetText( std::string( g_pGameData->GetName(i) ) );
+        m_pScoreNames[i]->m_W = 
+                (float)Iw2DGetStringWidth( g_pGameData->GetName(i) ) + 5;
     }
 
     if( g_pInput->m_Pressed )
