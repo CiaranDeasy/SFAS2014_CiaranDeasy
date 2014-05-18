@@ -63,6 +63,7 @@ void GameScene::Init()
     m_CurrentNumber = 1;
     m_Time = sTimeLimitInMinutes * 60;
     m_SuperModeRemaining = 0;
+    m_Score = 0;
 
 	// Create the score text
 	m_pScoreText = new CLabel();
@@ -170,6 +171,7 @@ void GameScene::Reset()
     m_CurrentNumber = 1;
     m_SuperModeRemaining = 0;
     m_Updated = false;
+    m_pSuperModeSprite->m_IsVisible = false;
 }
 
 void GameScene::Update(float deltaTime, float alphaMul)
